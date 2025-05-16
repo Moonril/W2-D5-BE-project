@@ -5,13 +5,13 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
-// 1-2aggiunta elemento
-// 5ricerca per ISBN
-// 3rimozione per ISBN
-// 7ricerca per anno
-// 6ricerca per autore
-// 4aggiornamento per ISBN
-// 8statistiche
+// aggiunta elemento
+// ricerca per ISBN
+// rimozione per ISBN
+// ricerca per anno
+// ricerca per autore
+// aggiornamento per ISBN
+// statistiche
 public class Archivio {
 
     //contenitore
@@ -35,21 +35,33 @@ public class Archivio {
         return catalogo.stream()
                 .filter(elemento -> elemento.getISBN().equals(isbn))
                 .findFirst()
-                .orElseThrow(() -> new ElementoNonTrovatoException("Elemento non trovato"));
+                .orElseThrow(() -> new ElementoNonTrovatoException("Elemento non trovato con codice: " + isbn));
     }
 
-    public List<ElementiCatalogo> cercaPerAnno(int anno) {
-        return catalogo.stream()
+    public List<ElementiCatalogo> cercaPerAnno(int anno) throws ElementoNonTrovatoException {
+        List<ElementiCatalogo> risultati = catalogo.stream()
                 .filter(elemento -> elemento.getAnno() == anno)
                 .collect(Collectors.toList());
+
+        if (risultati.isEmpty()) {
+            throw new ElementoNonTrovatoException("Nessun elemento trovato per l'anno " + anno);
+        }
+
+        return risultati;
     }
 
-    public List<Libri> cercaPerAutore(String autore){
-        return catalogo.stream()
-                .filter(e->e instanceof Libri)
-                .map(e->(Libri) e)
-                .filter(libro->libro.getAutore().equalsIgnoreCase(autore))
+    public List<Libri> cercaPerAutore(String autore) throws ElementoNonTrovatoException{
+        List<Libri> risultati = catalogo.stream()
+                .filter(e -> e instanceof Libri)
+                .map(e -> (Libri) e)
+                .filter(libro -> libro.getAutore().equalsIgnoreCase(autore))
                 .collect(Collectors.toList());
+
+        if (risultati.isEmpty()) {
+            throw new ElementoNonTrovatoException("Nessun libro trovato per l'autore: " + autore);
+        }
+
+        return risultati;
     }
 
     public void aggiornaElemento(String isbn, ElementiCatalogo nuovoElemento) throws ElementoNonTrovatoException {

@@ -19,10 +19,10 @@ public class Libri extends ElementiCatalogo{
 
     @Override
     public String toString() {
-        return "Libri{" +
+        return super.toString() + " " +
                 "autore='" + autore + '\'' +
                 ", genere='" + genere + '\'' +
-                '}';
+                ']';
     }
 
 

@@ -19,12 +19,12 @@ public abstract class ElementiCatalogo {
 
     @Override
     public String toString() {
-        return "ElementiCatalogo{" +
+        return "Elemento nel catalogo[" +
                 "ISBN=" + ISBN +
                 ", titolo='" + titolo + '\'' +
                 ", anno=" + anno +
                 ", numeroPagine=" + numeroPagine +
-                '}';
+                ", ";
     }
 
     public String getISBN() {

@@ -19,9 +19,9 @@ public class Riviste extends ElementiCatalogo {
 
     @Override
     public String toString() {
-        return "Riviste{" +
+        return super.toString() + " " +
                 "periodicita=" + periodicita +
-                '}';
+                ']';
     }
 
 
