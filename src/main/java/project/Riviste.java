@@ -9,7 +9,7 @@ public class Riviste extends ElementiCatalogo {
 
     //costruttore
 
-    public Riviste(Long ISBN, String titolo, int anno, int numeroPagine, Periodicita periodicita) {
+    public Riviste(String ISBN, String titolo, int anno, int numeroPagine, Periodicita periodicita) {
         super(ISBN, titolo, anno, numeroPagine);
         this.periodicita = periodicita;
     }

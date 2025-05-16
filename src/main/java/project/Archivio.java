@@ -5,13 +5,13 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
-// aggiunta elemento
-// ricerca per ISBN
-// rimozione per ISBN
-// ricerca per anno
-// ricerca per autore
-// aggiornamento per ISBN
-// statistiche
+// 1-2aggiunta elemento
+// 5ricerca per ISBN
+// 3rimozione per ISBN
+// 7ricerca per anno
+// 6ricerca per autore
+// 4aggiornamento per ISBN
+// 8statistiche
 public class Archivio {
 
     //contenitore
@@ -38,7 +38,7 @@ public class Archivio {
                 .orElseThrow(() -> new ElementoNonTrovatoException("Elemento non trovato"));
     }
 
-    public List<ElementiCatalogo> carcaPerAnno(int anno) {
+    public List<ElementiCatalogo> cercaPerAnno(int anno) {
         return catalogo.stream()
                 .filter(elemento -> elemento.getAnno() == anno)
                 .collect(Collectors.toList());

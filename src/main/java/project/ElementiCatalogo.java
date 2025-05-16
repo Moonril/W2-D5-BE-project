@@ -5,12 +5,12 @@ import java.time.Year;
 import java.util.Objects;
 
 public abstract class ElementiCatalogo {
-    private Long ISBN;
+    private String ISBN;
     private String titolo;
     private int anno;
     private int numeroPagine;
 
-    public ElementiCatalogo(Long ISBN, String titolo, int anno, int numeroPagine) {
+    public ElementiCatalogo(String ISBN, String titolo, int anno, int numeroPagine) {
         this.ISBN = ISBN;
         this.titolo = titolo;
         this.anno = anno;
@@ -27,7 +27,7 @@ public abstract class ElementiCatalogo {
                 '}';
     }
 
-    public Long getISBN() {
+    public String getISBN() {
         return ISBN;
     }
 

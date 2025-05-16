@@ -9,7 +9,7 @@ public class Libri extends ElementiCatalogo{
     private String genere;
 
     //costruttore
-    public Libri(Long ISBN, String titolo, int anno, int numeroPagine, String autore, String genere) {
+    public Libri(String ISBN, String titolo, int anno, int numeroPagine, String autore, String genere) {
         super(ISBN, titolo, anno, numeroPagine);
         this.autore = autore;
         this.genere = genere;
