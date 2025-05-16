@@ -1,5 +1,8 @@
 package project;
-// contenitoree
+
+import java.util.HashMap;
+import java.util.Map;
+
 // aggiunta elemento
 // ricerca per ISBN
 // rimozione per ISBN
@@ -8,4 +11,7 @@ package project;
 // aggiornamento per ISBN
 // statistiche
 public class Archivio {
+
+    //contenitore
+    private Map<String, ElementiCatalogo> catalogo = new HashMap<>();
 }
